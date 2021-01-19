@@ -24,6 +24,10 @@ export const FireBaseLogout = () => {
     });
 
 }
+
+export const UserEmail = ()=> {
+    return  firebase.auth().currentUser.email
+}
 export const FireBaseAddFeedback = (title, appName, type, feedbackDescription ,redirectCallback) => {
     const uid = auth.currentUser.uid;
     db.collection('feedbacks').add({

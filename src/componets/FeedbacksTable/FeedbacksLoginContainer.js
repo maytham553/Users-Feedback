@@ -16,8 +16,8 @@ class FeedbacksLoginContainer extends React.Component {
         const db = fbConfig.firestore();
         const dbFeedbacksRef = db.collection('feedbacks');
 
-        dbFeedbacksRef.where("uid", "==", user.uid).get().then(snapshot => {
-            this.setState({feedbacks: snapshot.docs, dataStatus: 'success'})
+        dbFeedbacksRef.where("uid", "==", user.uid).get().then(querySnapshot => {
+            this.setState({feedbacks: querySnapshot.docs, dataStatus: 'success'})
         })
     }
 

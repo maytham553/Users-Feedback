@@ -1,20 +1,17 @@
 import React from "react";
-
-
+import ShowButton from "../Button/ShowButton";
 class FeedbackItem extends React.Component {
     render() {
         const style = {
             backgroundColor: 'gray',
             margin: '20px'
         }
+        const URL = "/showFeedback/" + this.props.feedbackId
         return (
             <div style={style}>
 
-                <div><span>feedback Title:</span><span>{this.props.feedback.feedbackTitle}</span></div>
-                <div><span>app Name:</span><span>{this.props.feedback.appName}</span></div>
-                <div><span>Type:</span><span>{this.props.feedback.type}</span></div>
-                <div><span>feedback Description:</span><span>{this.props.feedback.feedbackDescription}</span></div>
-
+                <div><span> Title:</span><span>{this.props.feedback.title}</span></div>
+                <ShowButton feedback={this.props.feedback}/>
             </div>
         )
     }

@@ -1,5 +1,5 @@
 import React from "react";
-import firebase from "../config/fbConfig";
+// import firebase from "../config/fbConfig";
 import AdminRouters from "./AdminRouters";
 import LoginRouters from "./LoginRouters";
 import LogoutRouters from "./LogoutRouters";
