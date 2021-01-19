@@ -1,5 +1,6 @@
 import React from "react";
 import ShowButton from "../Button/ShowButton";
+import DeleteButton from "../Button/DeleteButton";
 class FeedbackItem extends React.Component {
     render() {
         const style = {
@@ -12,6 +13,8 @@ class FeedbackItem extends React.Component {
 
                 <div><span> Title:</span><span>{this.props.feedback.title}</span></div>
                 <ShowButton feedback={this.props.feedback}/>
+
+                {<DeleteButton feedbackId={this.props.feedbackId}/>}
             </div>
         )
     }

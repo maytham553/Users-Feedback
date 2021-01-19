@@ -70,4 +70,13 @@ export const getData = (loginStatus, isAdmin, setfeedbacks) => {
 }
 
 
+export const deleteFeedback= (feedbackDocumentId)=>{
+    db.collection("feedbacks").doc(feedbackDocumentId).delete().then(function() {
+        console.log("Document successfully deleted!");
+    }).catch(function(error) {
+        console.error("Error removing document: ", error);
+    });
+
+}
+
 

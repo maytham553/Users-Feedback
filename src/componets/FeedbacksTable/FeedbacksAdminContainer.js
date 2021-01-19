@@ -14,6 +14,7 @@ class FeedbacksAdminContainer extends React.Component {
         const db = fbConfig.firestore();
         const dbFeedbacksRef = db.collection('feedbacks');
         dbFeedbacksRef.get().then(querySnapshot => {
+
             this.setState({feedbacks: querySnapshot.docs, dataStatus: 'success'})
         })
 
