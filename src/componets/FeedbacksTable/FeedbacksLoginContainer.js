@@ -2,6 +2,7 @@ import React from "react";
 import firebase from "../../config/fbConfig";
 import fbConfig from "../../config/fbConfig";
 import FeedbacksList from "./FeedbacksList";
+import GetFeedbacksContext from "../../contextApi/GetFeedbacksContext";
 
 
 class FeedbacksLoginContainer extends React.Component {
@@ -11,7 +12,7 @@ class FeedbacksLoginContainer extends React.Component {
         this.state = {dataStatus: 'loading', feedbacks: [{}]}
     }
 
-    getData = () => {
+    getFeedbacks = () => {
         const user = firebase.auth().currentUser;
         const db = fbConfig.firestore();
         const dbFeedbacksRef = db.collection('feedbacks');
@@ -23,12 +24,14 @@ class FeedbacksLoginContainer extends React.Component {
 
 
     componentDidMount() {
-        this.getData()
+        this.getFeedbacks()
     }
 
 
     render() {
-        return (<FeedbacksList feedbacks={this.state.feedbacks} dataStatus={this.state.dataStatus}/>)
+        return (<GetFeedbacksContext.Provider value={this.getFeedbacks}>
+            <FeedbacksList feedbacks={this.state.feedbacks}
+                           dataStatus={this.state.dataStatus}/></GetFeedbacksContext.Provider>)
     }
 }
 

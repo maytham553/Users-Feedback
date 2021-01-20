@@ -1,6 +1,7 @@
 import React from "react";
 import fbConfig from "../../config/fbConfig";
 import FeedbacksList from "./FeedbacksList";
+import GetFeedbacksContext from "../../contextApi/GetFeedbacksContext";
 
 
 class FeedbacksAdminContainer extends React.Component {
@@ -10,7 +11,7 @@ class FeedbacksAdminContainer extends React.Component {
         this.state = {dataStatus: 'loading', feedbacks: [{}]}
     }
 
-    getData = () => {
+    getFeedbacks = () => {
         const db = fbConfig.firestore();
         const dbFeedbacksRef = db.collection('feedbacks');
         dbFeedbacksRef.get().then(querySnapshot => {
@@ -22,12 +23,15 @@ class FeedbacksAdminContainer extends React.Component {
 
 
     componentDidMount() {
-        this.getData()
+        this.getFeedbacks()
     }
 
 
     render() {
-        return (<FeedbacksList feedbacks={this.state.feedbacks} dataStatus={this.state.dataStatus}/>)
+        return (
+            <GetFeedbacksContext.Provider value={{getFeedbacks: this.getFeedbacks}}>
+                <FeedbacksList feedbacks={this.state.feedbacks} dataStatus={this.state.dataStatus}/>
+            </GetFeedbacksContext.Provider>)
     }
 }
 

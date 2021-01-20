@@ -1,14 +1,15 @@
 import React from "react";
-import FeedbackContext from "../../contextApi/FeedbackContext";
 import {deleteFeedback} from "../../FireBase/FireBase";
-
+import GetFeedbacksContext from "../../contextApi/GetFeedbacksContext";
 class DeleteButton extends React.Component {
 
-    DeleteFeedback = () =>{
+    DeleteFeedback = () => {
         if (window.confirm('Are you sure you want to delete this feedback')) {
             deleteFeedback(this.props.feedbackId)
+            this.context.getFeedbacks();
         }
     }
+
     render() {
         return (
             <button onClick={this.DeleteFeedback}>Delete</button>
@@ -16,8 +17,8 @@ class DeleteButton extends React.Component {
     }
 
 }
+DeleteButton.contextType = GetFeedbacksContext;
 
-FeedbackContext.contextType = FeedbackContext;
 
 
 export default DeleteButton
