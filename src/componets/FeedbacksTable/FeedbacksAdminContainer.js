@@ -19,6 +19,7 @@ class FeedbacksAdminContainer extends React.Component {
             this.setState({feedbacks: querySnapshot.docs, dataStatus: 'success'})
         })
 
+
     }
 
 

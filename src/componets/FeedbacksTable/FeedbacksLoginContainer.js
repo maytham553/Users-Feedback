@@ -29,9 +29,12 @@ class FeedbacksLoginContainer extends React.Component {
 
 
     render() {
-        return (<GetFeedbacksContext.Provider value={this.getFeedbacks}>
-            <FeedbacksList feedbacks={this.state.feedbacks}
-                           dataStatus={this.state.dataStatus}/></GetFeedbacksContext.Provider>)
+        return (
+            <GetFeedbacksContext.Provider value={{getFeedbacks:this.getFeedbacks}}>
+                <FeedbacksList feedbacks={this.state.feedbacks}
+                               dataStatus={this.state.dataStatus}/>
+            </GetFeedbacksContext.Provider>
+        )
     }
 }
 
