@@ -18,7 +18,7 @@ import {FireBaseAddFeedback} from "../../FireBase/FireBase";
 
     submit() {
         const data = this.getForm().collecting().data();
-        const title = data.feedbackTitle;
+        const title = data.title;
         const appName = data.appName;
         const type = data.type;
         const feedbackDescription = data.feedbackDescription;

@@ -9,8 +9,8 @@ class ShowButton extends React.Component {
         return (
 
             <FeedbackContext.Consumer>
-                {({updateSelectedFeedback}) => <>
-                    <button onClick={() => updateSelectedFeedback(this.props.feedback)}><Link
+                {({setSelectedFeedback}) => <>
+                    <button onClick={() => setSelectedFeedback(this.props.feedback)}><Link
                         to="/showFeedback">show</Link>
                     </button>
                 </>}

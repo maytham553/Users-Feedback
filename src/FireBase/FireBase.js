@@ -35,7 +35,8 @@ export const FireBaseAddFeedback = (title, appName, type, feedbackDescription ,r
         title: title,
         appName: appName,
         type: type,
-        feedbackDescription: feedbackDescription
+        feedbackDescription: feedbackDescription,
+        status:"unread"
     }).then(() => {
         // close the create modal & reset form
         redirectCallback()
@@ -45,6 +46,34 @@ export const FireBaseAddFeedback = (title, appName, type, feedbackDescription ,r
         console.log(err);
     });
 }
+export const FireBaseUpdateFeedback = (feedbackId , title, appName, type, feedbackDescription ,redirectCallback) => {
+    db.collection('feedbacks').doc(feedbackId).update({
+        title: title,
+        appName: appName,
+        type: type,
+        feedbackDescription: feedbackDescription
+    }).then(() => {
+        // close the create modal & reset form
+        redirectCallback()
+        console.log('success update')
+
+    }).catch(err => {
+        console.log(err);
+    });
+}
+export const FireBaseUpdateStatus = (feedbackId , status,redirectCallback) => {
+    db.collection('feedbacks').doc(feedbackId).update({
+        status:status
+    }).then(() => {
+        // close the create modal & reset form
+        redirectCallback()
+        console.log('success update status')
+
+    }).catch(err => {
+        console.log(err);
+    });
+}
+
 
 export const getData = (loginStatus, isAdmin, setfeedbacks) => {
     const user = firebase.auth().currentUser;

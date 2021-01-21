@@ -13,6 +13,7 @@ class App extends React.Component {
         this.state = {
             userType: 'undefined',
             selectedFeedback: {
+                feedbackId: null,
                 uid: null,
                 title: null,
                 appName: null,
@@ -32,17 +33,17 @@ class App extends React.Component {
         })
     }
 
-    updateSelectedFeedback = (feedback) => {
+    setSelectedFeedback = (feedback) => {
         this.setState({selectedFeedback: feedback})
     }
 
 
     render() {
-        
+
         return (
             <FeedbackContext.Provider value={{
                 selectedFeedback: this.state.selectedFeedback,
-                updateSelectedFeedback: this.updateSelectedFeedback
+                setSelectedFeedback: this.setSelectedFeedback
             }}>
                 <div className="App">
                     <MainNav userType={this.state.userType}/>
