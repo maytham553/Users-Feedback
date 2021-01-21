@@ -7,6 +7,7 @@ import FeedbackStatusSubmitter from "./FeedbackStatusSubmitter";
 class FeedbackStatusForm extends React.Component{
 
     render() {
+        console.log(this.props.feedbackStatus)
         return (
             <Box display={'flex'} justifyContent={'center'}>
                 <Form fields={[
@@ -21,6 +22,7 @@ class FeedbackStatusForm extends React.Component{
                         }
                     },
                 ]}
+                      initialValues={{status:this.props.feedbackStatus}}
                       services={{
                           submitter: (form) => new FeedbackStatusSubmitter(form,this.props.feedbackId ,() => {
                               alert('status updated successfully')

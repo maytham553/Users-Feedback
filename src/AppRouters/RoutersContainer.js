@@ -3,26 +3,27 @@ import React from "react";
 import AdminRouters from "./AdminRouters";
 import LoginRouters from "./LoginRouters";
 import LogoutRouters from "./LogoutRouters";
+import UserTypeContext from "../contextApi/UserTypeContext";
 
 
 class RoutersContainer extends React.Component {
 
 
-
     render() {
-        if (this.props.userType === 'logout') {
+        if (this.context.userType === 'logout') {
             return <LogoutRouters/>
-        }
-        else if (this.props.userType === 'login') {
+        } else if (this.context.userType === 'login') {
             return <LoginRouters/>
-        }
-        else if (this.props.userType === 'admin') {
+        } else if (this.context.userType === 'admin') {
             return <AdminRouters/>
-        }else {
+        } else {
             return <></>
         }
 
     }
 }
+
+RoutersContainer.contextType = UserTypeContext
+
 
 export default RoutersContainer

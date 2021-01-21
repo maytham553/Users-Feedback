@@ -1,9 +1,9 @@
 import React from "react";
 
-
-const  GetFeedbacksContext = React.createContext({
+const defaultValue = {
     getFeedbacks: () => {}
+}
+const  GetFeedbacksContext = React.createContext({defaultValue});
 
-});
 
 export default GetFeedbacksContext ;

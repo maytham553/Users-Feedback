@@ -1,23 +1,25 @@
 import React from "react";
 
 const defaultValue = {
-    feedbackContent: {
-        status:null,
-        uid: null,
-        title: null,
-        appName: null,
-        type: null,
-        feedbackDescription: null
+    selectedFeedback:{
+
+        feedbackContent: {
+            status:null,
+            uid: null,
+            title: null,
+            appName: null,
+            type: null,
+            feedbackDescription: null
+        },
+        feedbackId: {feedbackId: null,}
     },
-    feedbackId: {feedbackId: null,}
+
+    setSelectedFeedback:()=>{}
+
+
 
 }
 
-const FeedbackContext = React.createContext({
-    selectedFeedback: defaultValue,
-    setSelectedFeedback: () => {
-    }
-
-});
+const FeedbackContext = React.createContext({defaultValue});
 
 export default FeedbackContext;
