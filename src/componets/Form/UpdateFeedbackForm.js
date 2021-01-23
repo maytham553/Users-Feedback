@@ -2,17 +2,15 @@ import React from "react";
 import {Form} from "@autofiy/raf-core";
 import {Radio, Text, TextArea} from "@autofiy/raf-material";
 import {Box, Button} from "@material-ui/core";
-import FeedbackContext from "../../contextApi/FeedbackContext";
 import UpdateFeedbackSubmitter from "./UpdateFeedbackSubmitter";
 import {withRouter} from "react-router-dom";
 
 class UpdateFeedbackForm extends React.Component {
 
-    feedback = this.context.selectedFeedback.feedbackContent;
-    feedbackId = this.context.selectedFeedback.feedbackId;
+     feedbackDetails = this.props.location.state.feedbackDetails;
+     feedbackId = this.props.location.state.feedbackId;
 
     render() {
-        console.log(this.feedback)
         return (
             <Box display={'flex'} justifyContent={'center'}>
                 <Form fields={[
@@ -46,7 +44,7 @@ class UpdateFeedbackForm extends React.Component {
 
                           })
                       }}
-                      initialValues={this.feedback}
+                      initialValues={this.feedbackDetails}
 
 
                       extra={{
@@ -69,6 +67,5 @@ class UpdateFeedbackForm extends React.Component {
 
 }
 
-UpdateFeedbackForm.contextType = FeedbackContext;
 
 export default withRouter(UpdateFeedbackForm)

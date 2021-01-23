@@ -1,6 +1,6 @@
 import React from "react";
 import {Route, Switch} from "react-router-dom";
-import LoginForm from "../componets/form/LoginForm";
+import LoginForm from "../componets/Form/LoginForm";
 
 class Routers extends React.Component {
 

@@ -1,8 +1,7 @@
 import React from "react";
-import firebase from "../../config/fbConfig";
-import fbConfig from "../../config/fbConfig";
+import firebase from "../../config/FirebaseConfig";
+import fbConfig from "../../config/FirebaseConfig";
 import FeedbacksList from "./FeedbacksList";
-import GetFeedbacksContext from "../../contextApi/GetFeedbacksContext";
 
 
 class FeedbacksLoginContainer extends React.Component {
@@ -10,6 +9,12 @@ class FeedbacksLoginContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {dataStatus: 'loading', feedbacks: [{}]}
+    }
+
+    onDelete = (feedbackId) => {
+         const feedbacksAfterDelete =this.state.feedbacks.filter(feedback=>feedback.id !== feedbackId);
+        feedbacksAfterDelete.map(a =>{ console.log(a.data().title)})
+        this.setState({feedbacks:feedbacksAfterDelete})
     }
 
     getFeedbacks = () => {
@@ -29,11 +34,16 @@ class FeedbacksLoginContainer extends React.Component {
 
 
     render() {
+        // if (this.state.feedbacks.length > 1) {
+        //     this.state.feedbacks.map(a => {
+        //         console.log(a.data().title)
+        //     })
+        //
+        // }
         return (
-            <GetFeedbacksContext.Provider value={{getFeedbacks:this.getFeedbacks}}>
                 <FeedbacksList feedbacks={this.state.feedbacks}
-                               dataStatus={this.state.dataStatus}/>
-            </GetFeedbacksContext.Provider>
+                               dataStatus={this.state.dataStatus}
+                               onDelete={this.onDelete}/>
         )
     }
 }

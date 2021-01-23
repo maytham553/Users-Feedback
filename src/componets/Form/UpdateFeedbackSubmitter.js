@@ -1,14 +1,18 @@
-import firebase from "firebase";
+import firebase from "../../config/FirebaseConfig";
 
-class FeedbackStatusSubmitter {
 
+class UpdateFeedbackSubmitter {
     db = firebase.firestore();
+    auth = firebase.auth();
+
+
     form = null;
 
     constructor(form, feedbackId, redirectCallback) {
         this.form = form;
         this.feedbackId = feedbackId;
         this.redirectCallback = redirectCallback;
+
     }
 
     getForm() {
@@ -18,25 +22,28 @@ class FeedbackStatusSubmitter {
 
     submit() {
         const data = this.getForm().collecting().data();
+        const title = data.title;
         const feedbackId = this.feedbackId;
-        const status = data.status
-
-
+        const appName = data.appName;
+        const type = data.type;
+        const feedbackDescription = data.feedbackDescription;
         this.db.collection('feedbacks').doc(feedbackId).update({
-            status: status
+            title: title,
+            appName: appName,
+            type: type,
+            feedbackDescription: feedbackDescription
         }).then(() => {
             // close the create modal & reset Form
             this.redirectCallback()
-            console.log('success update status')
+            console.log('success update')
 
         }).catch(err => {
             console.log(err);
         });
-
     }
 
 
 }
 
-export default FeedbackStatusSubmitter
+export default UpdateFeedbackSubmitter
 

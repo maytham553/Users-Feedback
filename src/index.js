@@ -3,16 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import rootReducer from "./store/reducer/RootReducer";
 import {setupRafMaterial} from "@autofiy/raf-material";
-import {createStore , applyMiddleware} from "redux";
-import {Provider} from 'react-redux';
-import thunk from "redux-thunk";
 import {BrowserRouter} from "react-router-dom";
 
-const store = createStore(rootReducer , applyMiddleware(thunk));
 setupRafMaterial();
-
 
 ReactDOM.render(
         <BrowserRouter>

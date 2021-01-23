@@ -1,7 +1,6 @@
 import React from "react";
-import fbConfig from "../../config/fbConfig";
+import fbConfig from "../../config/FirebaseConfig";
 import FeedbacksList from "./FeedbacksList";
-import GetFeedbacksContext from "../../contextApi/GetFeedbacksContext";
 
 
 class FeedbacksAdminContainer extends React.Component {
@@ -11,11 +10,16 @@ class FeedbacksAdminContainer extends React.Component {
         this.state = {dataStatus: 'loading', feedbacks: [{}]}
     }
 
+    onDelete = (feedbackId) => {
+        // const feedbacksAfterDelete = this.state.feedbacks.filter(feedback=>feedback.id === feedbackId);
+        // this.setState({feedbacks:feedbacksAfterDelete})
+        console.log(feedbackId)
+    }
+
     getFeedbacks = () => {
         const db = fbConfig.firestore();
         const dbFeedbacksRef = db.collection('feedbacks');
         dbFeedbacksRef.get().then(querySnapshot => {
-
             this.setState({feedbacks: querySnapshot.docs, dataStatus: 'success'})
         })
 
@@ -30,9 +34,9 @@ class FeedbacksAdminContainer extends React.Component {
 
     render() {
         return (
-            <GetFeedbacksContext.Provider value={{getFeedbacks: this.getFeedbacks}}>
-                <FeedbacksList feedbacks={this.state.feedbacks} dataStatus={this.state.dataStatus}/>
-            </GetFeedbacksContext.Provider>)
+            <FeedbacksList onDelete={this.onDelete} feedbacks={this.state.feedbacks}
+                           dataStatus={this.state.dataStatus}/>
+        )
     }
 }
 
