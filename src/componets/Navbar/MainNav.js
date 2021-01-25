@@ -3,7 +3,7 @@ import LoginLink from "./LoginLink";
 import AdminLink from "./AdminLink";
 import UserTypeContext from "../../contextApi/UserTypeContext";
 import firebase from "../../config/FirebaseConfig";
-import LoginForm from "../Form/LoginForm";
+import LoginForm from "../../Login/LoginForm";
 
 class MainNav extends React.Component {
 

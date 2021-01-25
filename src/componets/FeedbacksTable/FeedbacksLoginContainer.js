@@ -8,13 +8,12 @@ class FeedbacksLoginContainer extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {dataStatus: 'loading', feedbacks: [{}]}
+        this.state = {dataStatus: 'loading', feedbacks: []}
     }
 
     onDelete = (feedbackId) => {
-         const feedbacksAfterDelete =this.state.feedbacks.filter(feedback=>feedback.id !== feedbackId);
-        feedbacksAfterDelete.map(a =>{ console.log(a.data().title)})
-        this.setState({feedbacks:feedbacksAfterDelete})
+        const feedbacksAfterDelete = this.state.feedbacks.filter(feedback => feedback.id !== feedbackId);
+        this.setState({feedbacks: feedbacksAfterDelete})
     }
 
     getFeedbacks = () => {
@@ -22,9 +21,13 @@ class FeedbacksLoginContainer extends React.Component {
         const db = fbConfig.firestore();
         const dbFeedbacksRef = db.collection('feedbacks');
 
-        dbFeedbacksRef.where("uid", "==", user.uid).get().then(querySnapshot => {
-            this.setState({feedbacks: querySnapshot.docs, dataStatus: 'success'})
-        })
+        dbFeedbacksRef.where("uid", "==", user.uid)
+            .get()
+            .then(querySnapshot => {
+
+                const feedbacks = querySnapshot.docs.map(d => ({...d.data(), id: d.id}))
+                this.setState({feedbacks: feedbacks, dataStatus: 'success'})
+            })
     }
 
 
@@ -34,16 +37,11 @@ class FeedbacksLoginContainer extends React.Component {
 
 
     render() {
-        // if (this.state.feedbacks.length > 1) {
-        //     this.state.feedbacks.map(a => {
-        //         console.log(a.data().title)
-        //     })
-        //
-        // }
+
         return (
-                <FeedbacksList feedbacks={this.state.feedbacks}
-                               dataStatus={this.state.dataStatus}
-                               onDelete={this.onDelete}/>
+            <FeedbacksList feedbacks={this.state.feedbacks}
+                           dataStatus={this.state.dataStatus}
+                           onDelete={this.onDelete}/>
         )
     }
 }

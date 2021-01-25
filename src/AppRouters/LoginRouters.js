@@ -1,9 +1,9 @@
 import React from "react";
 import {Route, Switch} from "react-router-dom";
-import AddFeedbackForm from "../componets/Form/AddFeedbackForm";
+import AddFeedbackForm from "../AddFeedback/AddFeedbackForm";
 import FeedbacksLoginContainer from "../componets/FeedbacksTable/FeedbacksLoginContainer";
-import ShowFeedback from "../componets/ShowFeedback/ShowFeedback";
-import UpdateFeedbackForm from "../componets/Form/UpdateFeedbackForm";
+import ShowFeedback from "../ShowFeedback/ShowFeedback";
+import UpdateFeedbackForm from "../UpdateFeedback/UpdateFeedbackForm";
 class LoginRouters extends React.Component {
 
 

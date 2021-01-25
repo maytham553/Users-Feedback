@@ -4,40 +4,38 @@ import {Link} from "react-router-dom";
 
 class FeedbackItem extends React.Component {
     db = firebase.firestore();
-    feedbackId = this.props.feedback.id;
-    feedbackDetails = this.props.feedback.data()
 
 
-
-    DeleteFeedback = () => {
-        console.log(this.feedbackDetails.title);
-        this.props.onDelete(this.feedbackId)
-
-        // if (window.confirm('Are you sure you want to delete this feedback')) {
-        //     this.db.collection("feedbacks").doc(feedbackId).delete().then(function () {
-        //         console.log(feedbackId);
-        //         this.props.onDelete(this.feedbackId)
-        //         console.log("Document successfully deleted!");
-        //     }).catch(function (error) {
-        //         console.error("Error removing document: ", error);
-        //     });
-        // }
+    deleteFeedback = () => {
+        const feedbackId = this.props.feedback.id
+        const onDelete = this.props.onDelete
+        if (window.confirm('Are you sure you want to delete this feedback')) {
+            this.db.collection("feedbacks").doc(feedbackId).delete().then(function () {
+                onDelete(feedbackId);
+                console.log("Document successfully deleted!");
+            }).catch(function (error) {
+                console.error("Error removing document: ", error);
+            });
+        }
     }
 
 
     render() {
-
         const style = {
             backgroundColor: 'gray',
             margin: '20px'
         }
+
+
+        const feedbackId = this.props.feedback.id;
+        const feedbackDetails = this.props.feedback;
 
         return (
             <div style={style}>
 
                 <div>
                     <span> Title:</span>
-                    <span>{this.feedbackDetails.title}</span>
+                    <span>{feedbackDetails.title}</span>
                 </div>
 
                 {/*SHOW BUTTON */}
@@ -47,14 +45,14 @@ class FeedbackItem extends React.Component {
                             pathname: '/showFeedback',
                             state:
                                 {
-                                    feedbackDetails: this.feedbackDetails,
-                                    feedbackId: this.feedbackId
+                                    feedbackDetails: feedbackDetails,
+                                    feedbackId: feedbackId
                                 }
                         }}>show</Link>
                 </button>
 
                 {/*UPDATE BUTTON */}
-                <button onClick={this.setSelectedFeedback}>
+                <button>
                     <Link to={{
                         pathname: './updateFeedback',
                         state: {
@@ -67,8 +65,11 @@ class FeedbackItem extends React.Component {
                 </button>
 
                 {/*DELETE BUTTON */}
-                <button onClick={this.DeleteFeedback}>Delete</button>
+                <button onClick={this.deleteFeedback}>Delete</button>
+
             </div>
+
+
         )
     }
 
