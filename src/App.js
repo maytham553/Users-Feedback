@@ -4,6 +4,7 @@ import MainNav from "./componets/Navbar/MainNav";
 import firebase from './config/FirebaseConfig';
 import RoutersContainer from "./AppRouters/RoutersContainer";
 import UserTypeContext from "./contextApi/UserTypeContext";
+import {Container} from "@material-ui/core";
 
 class App extends React.Component {
 
@@ -34,27 +35,32 @@ class App extends React.Component {
 
         return (
 
+
             <UserTypeContext.Provider value={
                 {userType: this.state.userType}
             }>
                 <div className="App">
                     <MainNav/>
-                    <RoutersContainer/>
+
+                    <Container fixed>
+
+                        <RoutersContainer/>
 
 
-                    {/*this button only on test mode*/}
-                    <button onClick={() => {
-                        {
-                            if (this.state.userType === 'admin') {
-                                this.setState({userType: "login"})
-                            } else if (this.state.userType === 'login') {
-                                this.setState({userType: "admin"})
+                        {/*this button only on test mode*/}
+                        <button onClick={() => {
+                            {
+                                if (this.state.userType === 'admin') {
+                                    this.setState({userType: "login"})
+                                } else if (this.state.userType === 'login') {
+                                    this.setState({userType: "admin"})
+                                }
                             }
-                        }
-                    }}
-                    >
-                        he is {this.state.userType}
-                    </button>
+                        }}
+                        >
+                            he is {this.state.userType}
+                        </button>
+                    </Container>
 
                 </div>
             </UserTypeContext.Provider>
