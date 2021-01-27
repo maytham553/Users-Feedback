@@ -39,10 +39,12 @@ class FeedbacksLoginContainer extends React.Component {
 
     render() {
 
-        return (<Grid container  justify="center">
-                <FeedbacksList feedbacks={this.state.feedbacks}
-                               dataStatus={this.state.dataStatus}
-                               onDelete={this.onDelete}/>
+        return (<Grid container justify="center">
+                <FeedbacksList
+                    feedbacks={this.state.feedbacks}
+                    dataStatus={this.state.dataStatus}
+                    onDelete={this.onDelete}
+                />
             </Grid>
         )
     }
