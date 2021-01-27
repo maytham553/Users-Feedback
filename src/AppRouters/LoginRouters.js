@@ -11,7 +11,7 @@ class LoginRouters extends React.Component {
         return (
             <Switch>
                 <Route path={"/AddFeedback"} component={AddFeedbackForm}/>
-                <Route path={"/Feedbacks"}><FeedbacksLoginContainer/></Route>
+                <Route path={"/"}><FeedbacksLoginContainer/></Route>
                 <Route path={"/Account"}/>
                 <Route path={"/showFeedback"}><ShowFeedback/></Route>
                 <Route path={"/updateFeedback"}><UpdateFeedbackForm/></Route>

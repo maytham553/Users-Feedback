@@ -23,12 +23,16 @@ class MainNav extends React.Component {
 
 
     FireBaseLogout = () => {
-        this.auth.signOut().then(() => {
-            console.log('sign out')
+        if (window.confirm('Are you sure you want to Logout')){
+            this.auth.signOut().then(() => {
+                console.log('sign out')
 
-        }).catch((error) => {
-            console.log(error)
-        });
+            }).catch((error) => {
+                console.log(error)
+            });
+        }
+
+
 
     }
 

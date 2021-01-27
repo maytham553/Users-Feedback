@@ -56,7 +56,7 @@ class FeedbackItem extends React.Component {
         const {classes} = this.props;
 
         return (
-            <Grid container item className={classes.item} spacing={2} md={4}>
+            <Grid container item className={classes.item} spacing={2} md={2}>
 
                 <Grid item container spacing={1} xs={12}>
                     <Typography variant="h6" >
