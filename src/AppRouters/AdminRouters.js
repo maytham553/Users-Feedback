@@ -1,6 +1,6 @@
 import React from "react";
 import {Route, Switch} from "react-router-dom";
-import FeedbacksAdminContainer from "../componets/FeedbacksTable/FeedbacksAdminContainer";
+import FeedbacksAdminContainer from "../FeedbacksTable/FeedbacksAdminContainer";
 import ShowFeedback from "../ShowFeedback/ShowFeedback";
 import UpdateFeedbackForm from "../UpdateFeedback/UpdateFeedbackForm";
 

@@ -1,7 +1,8 @@
 import React from "react";
-import firebase from "../../config/FirebaseConfig";
-import fbConfig from "../../config/FirebaseConfig";
+import firebase from "../config/FirebaseConfig";
+import fbConfig from "../config/FirebaseConfig";
 import FeedbacksList from "./FeedbacksList";
+import {Grid} from "@material-ui/core";
 
 
 class FeedbacksLoginContainer extends React.Component {
@@ -38,10 +39,11 @@ class FeedbacksLoginContainer extends React.Component {
 
     render() {
 
-        return (
-            <FeedbacksList feedbacks={this.state.feedbacks}
-                           dataStatus={this.state.dataStatus}
-                           onDelete={this.onDelete}/>
+        return (<Grid container  justify="center">
+                <FeedbacksList feedbacks={this.state.feedbacks}
+                               dataStatus={this.state.dataStatus}
+                               onDelete={this.onDelete}/>
+            </Grid>
         )
     }
 }

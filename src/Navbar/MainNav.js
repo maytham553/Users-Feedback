@@ -1,15 +1,13 @@
 import React from 'react';
 import LoginLink from "./LoginLink";
 import AdminLink from "./AdminLink";
-import UserTypeContext from "../../contextApi/UserTypeContext";
-import firebase from "../../config/FirebaseConfig";
-import LoginForm from "../../Login/LoginForm";
+import UserTypeContext from "../contextApi/UserTypeContext";
+import firebase from "../config/FirebaseConfig";
+import LoginForm from "../Login/LoginForm";
 import {withStyles} from "@material-ui/core";
 
 
 const styles = theme => ({
-    root: {},
-
     rightButtons: {
         textAlign: 'right'
     },

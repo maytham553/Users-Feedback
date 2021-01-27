@@ -1,10 +1,9 @@
 import React from "react";
-import './App.css';
-import MainNav from "./componets/Navbar/MainNav";
+import MainNav from "./Navbar/MainNav";
 import firebase from './config/FirebaseConfig';
 import RoutersContainer from "./AppRouters/RoutersContainer";
 import UserTypeContext from "./contextApi/UserTypeContext";
-import {Container} from "@material-ui/core";
+import {Box, Container} from "@material-ui/core";
 
 class App extends React.Component {
 
@@ -39,14 +38,12 @@ class App extends React.Component {
             <UserTypeContext.Provider value={
                 {userType: this.state.userType}
             }>
-                <div className="App">
+                <Box className="App">
                     <MainNav/>
 
-                    <Container fixed>
+                    <Container >
 
                         <RoutersContainer/>
-
-
                         {/*this button only on test mode*/}
                         <button onClick={() => {
                             {
@@ -62,7 +59,7 @@ class App extends React.Component {
                         </button>
                     </Container>
 
-                </div>
+                </Box>
             </UserTypeContext.Provider>
         );
 
