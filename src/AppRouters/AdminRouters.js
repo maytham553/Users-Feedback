@@ -10,13 +10,10 @@ class AdminRouters extends React.Component {
     render() {
         return (
             <Switch>
-                <Route path={"/"}><FeedbacksAdminContainer/></Route>
+                <Route exact path={"/"} component={FeedbacksAdminContainer}/>
                 <Route path={"/Account"}/>
-                <Route path={"/showFeedback"}><ShowFeedback/></Route>
-                <Route path={"/updateFeedback"}><UpdateFeedbackForm/></Route>
-
-
-
+                <Route path={"/showFeedback"} component={ShowFeedback}/>
+                <Route path={"/updateFeedback"} component={UpdateFeedbackForm}/>
             </Switch>
 
         );

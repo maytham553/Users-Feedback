@@ -15,6 +15,7 @@ const styles = theme => ({
         marginTop: '30px',
         borderRadius: '5px',
         textAlign: 'center',
+        paddingTop: '10px',
 
     },
     deleteButton: {
@@ -22,11 +23,17 @@ const styles = theme => ({
         backgroundColor: red[500]
     },
 
-    title: {
-        color: grey[500],
-        fontSize:'30px',
+    titleLabel: {
+        borderRadius: '4px',
+        color: grey[600],
+        backgroundColor: grey[200],
         marginRight: '10px',
-        marginLeft: '8px'
+        marginLeft: '8px',
+        padding:'5px',
+        fontSize:'15px'
+    },
+    title: {
+        marginBottom:'10px',
     }
 });
 
@@ -56,11 +63,11 @@ class FeedbackItem extends React.Component {
         const {classes} = this.props;
 
         return (
-            <Grid container item className={classes.item} spacing={2} md={2}>
+            <Grid container item className={classes.item} spacing={3} md={2}>
 
-                <Grid item container spacing={1} xs={12}>
+                <Grid item container spacing={1} xs={12} className={classes.title}>
                     <Typography variant="h6" >
-                        <Box component={"span"} className={classes.title}>^^</Box>
+                        <Box component={"span"} className={classes.titleLabel}>Title</Box>
                          {feedbackDetails.title}
                     </Typography>
 

@@ -4,6 +4,7 @@ import AddFeedbackForm from "../AddFeedback/AddFeedbackForm";
 import FeedbacksLoginContainer from "../FeedbacksTable/FeedbacksLoginContainer";
 import ShowFeedback from "../ShowFeedback/ShowFeedback";
 import UpdateFeedbackForm from "../UpdateFeedback/UpdateFeedbackForm";
+
 class LoginRouters extends React.Component {
 
 
@@ -11,10 +12,10 @@ class LoginRouters extends React.Component {
         return (
             <Switch>
                 <Route path={"/AddFeedback"} component={AddFeedbackForm}/>
-                <Route path={"/"}><FeedbacksLoginContainer/></Route>
+                <Route exact path={"/"} component={FeedbacksLoginContainer}/>
                 <Route path={"/Account"}/>
-                <Route path={"/showFeedback"}><ShowFeedback/></Route>
-                <Route path={"/updateFeedback"}><UpdateFeedbackForm/></Route>
+                <Route path={"/showFeedback"} component={ShowFeedback}/>
+                <Route path={"/updateFeedback"} component={UpdateFeedbackForm}/>
             </Switch>
 
 
