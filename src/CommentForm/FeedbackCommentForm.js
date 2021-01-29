@@ -1,7 +1,7 @@
 import React from "react";
-import {Form} from "@autofiy/raf-core";
+import {Form, GlobalEvents} from "@autofiy/raf-core";
 import {TextArea} from "@autofiy/raf-material";
-import {Box, Button} from "@material-ui/core";
+import {Box, Button, Grid} from "@material-ui/core";
 import AddCommentFormSubmitter from "./AddCommentFormSubmitter";
 
 class FeedbackCommentForm extends React.Component {
@@ -9,7 +9,8 @@ class FeedbackCommentForm extends React.Component {
 
     render() {
         return (
-            <Box display={'flex'} justifyContent={'center'} >
+            <Grid item  md={12}  justifyContent={'center'} >
+
                 <Form fields={[
                     {
                         as: TextArea, name: 'commentBody', extra: {
@@ -18,10 +19,14 @@ class FeedbackCommentForm extends React.Component {
                         }
                     }
                 ]}
-
+                      listen={{
+                          [GlobalEvents.SUBMIT_SUCCEEDED]: (form, data) => {
+                              console.log(data);
+                              form.value().clear();
+                          }
+                      }}
 
                       services={{
-
 
                           submitter: (form) => new AddCommentFormSubmitter(form, this.feedbackId)
                       }}
@@ -37,7 +42,7 @@ class FeedbackCommentForm extends React.Component {
 
                       }}
                 />
-            </Box>
+            </Grid>
         );
     }
 

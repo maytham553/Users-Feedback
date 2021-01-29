@@ -1,4 +1,4 @@
-import firebase from "../config/FirebaseConfig";
+import firebase from "../Config/FirebaseConfig";
 
 
 class UpdateFeedbackSubmitter {

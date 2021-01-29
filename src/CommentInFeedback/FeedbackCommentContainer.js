@@ -1,7 +1,8 @@
 import React from "react";
-import firebase from "../config/FirebaseConfig";
-import fbConfig from "../config/FirebaseConfig";
+import firebase from "../Config/FirebaseConfig";
+import fbConfig from "../Config/FirebaseConfig";
 import FeedbackCommentList from "./FeedbackCommentList";
+import {Box, Grid} from "@material-ui/core";
 
 
 class FeedbackCommentContainer extends React.Component {
@@ -16,7 +17,7 @@ class FeedbackCommentContainer extends React.Component {
         const db = fbConfig.firestore();
         const dbFeedbacksRef = db.collection('feedbacks').doc(this.props.feedbackId).collection('comment');
 
-        dbFeedbacksRef.where("uid", "==", user.uid).orderBy("created")
+        dbFeedbacksRef.orderBy("created")
             .onSnapshot(querySnapshot => {
                 const feedbackComments = querySnapshot.docs.map(d => ({...d.data(), id: d.id}))
                 this.setState({feedbackComments: feedbackComments, dataStatus: 'success'})
@@ -31,11 +32,9 @@ class FeedbackCommentContainer extends React.Component {
 
     render() {
         return (
-            <div>
-                <hr/>
-                <div>COMMENTS</div>
-                <FeedbackCommentList comments={this.state.feedbackComments} dataStatus={this.state.dataStatus}/>
-            </div>
+            <Grid item container justify={"center"} >
+                <FeedbackCommentList comments={this.state.feedbackComments} dataStatus={this.state.dataStatus} />
+            </Grid>
         );
     }
 

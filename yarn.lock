@@ -2,10 +2,15 @@
 # yarn lockfile v1
 
 
-"@autofiy/autofiyable@^1.2.0":
+"@autofiy/autofiyable@^1.1.0", "@autofiy/autofiyable@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@autofiy/autofiyable/-/autofiyable-1.2.0.tgz#067273cb6ce49444904fd3ad35e210d45d9dc9c4"
   integrity sha512-gIkQF1WC0Rj9CwrWWFynj6/4sG4NYfLeAA/KROuaQVxrkgMl9sMo8A2k0HopJD5V9WzRc21tK5lMmUbYA9V4Gg==
+
+"@autofiy/property@^1.0.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@autofiy/property/-/property-1.1.0.tgz#c280c1a8d18a56761674b88f264f501b02bdb8ec"
+  integrity sha512-fag9nf/FVdPzK8I9rRVVD/bSWDZ1nWe/et3eB3eIrE+7t8F3d8sJFuc0B/sXTkyCybjVfHr36GiQJiWb5iIPwg==
 
 "@autofiy/raf-core@^1.4.0", "@autofiy/raf-core@^1.5.0":
   version "1.5.0"
@@ -21,6 +26,35 @@
   dependencies:
     "@autofiy/raf-core" "^1.4.0"
     "@material-ui/core" "^4.11.2"
+
+"@autofiy/rai-core@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@autofiy/rai-core/-/rai-core-1.0.1.tgz#817eb76a4dc722daaa25ed08ecc2b3e95ebb7882"
+  integrity sha512-rVnuAsxMgw1MJiDmdu67/ljv/lfBWM5/sT+I+V6x+MzkGBCqbkIKN27otY1e/juf1YWf/EZ/ey0UaY6yjU4cOA==
+  dependencies:
+    "@autofiy/autofiyable" "^1.1.0"
+    "@autofiy/property" "^1.0.0"
+    react "^17.0.1"
+
+"@autofiy/rai-core@^1.1.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@autofiy/rai-core/-/rai-core-1.2.0.tgz#f0363075779c60668a7b3c8bd19a6d09f85aef99"
+  integrity sha512-cdEdPuiKm0za6Dk+L1SEHr7t870C46KwwiyaMjSFDJBUf9ZbLT5c60cGe6cbrjrrNXhzTty6pPnmRFTg2ibjKA==
+  dependencies:
+    "@autofiy/autofiyable" "^1.1.0"
+    "@autofiy/property" "^1.0.0"
+    react "^17.0.1"
+    react-dom "^17.0.1"
+    react-scripts "4.0.1"
+
+"@autofiy/rai-material@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@autofiy/rai-material/-/rai-material-1.1.1.tgz#8db8af71640d71aa72e1a8eb3a13fdd5a5a44fad"
+  integrity sha512-Y8CIaCfxFVIPsooAoTsy9etQz6N82gCLnADHE6K/hf1oJRgbNNIgQOI7aiylb/Mq1b3f+ygO8J1fwqIt4v8YAg==
+  dependencies:
+    "@autofiy/rai-core" "^1.1.0"
+    "@material-ui/core" "^4.11.2"
+    react "^17.0.1"
 
 "@babel/code-frame@7.10.4", "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.5.5":
   version "7.10.4"

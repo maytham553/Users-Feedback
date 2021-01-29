@@ -1,8 +1,8 @@
 import React from 'react';
 import LoginLink from "./LoginLink";
 import AdminLink from "./AdminLink";
-import UserTypeContext from "../contextApi/UserTypeContext";
-import firebase from "../config/FirebaseConfig";
+import UserTypeContext from "../Context/UserTypeContext";
+import firebase from "../Config/FirebaseConfig";
 import LoginForm from "../Login/LoginForm";
 import {withStyles} from "@material-ui/core";
 

@@ -40,7 +40,7 @@ class UpdateFeedbackForm extends React.Component {
 
 
                           submitter: (form) => new UpdateFeedbackSubmitter(form, this.feedbackId, () => {
-                              this.props.history.push('/Feedbacks')
+                              this.props.history.push('/')
 
                           })
                       }}

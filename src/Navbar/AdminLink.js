@@ -19,7 +19,7 @@ class LoginLink extends React.Component {
                     <Box>
                         <Button
                             component={NavLink}
-                            to='/Feedbacks'
+                            to='/'
                             color="inherit"
                             startIcon={<AllInboxIcon/>}
                             className={classes.leftButton}
@@ -37,7 +37,7 @@ class LoginLink extends React.Component {
 
                             <IconButton
                                 component={NavLink}
-                                to='/'
+                                to='#'
                                 color="inherit"
                                 onClick={this.props.FireBaseLogout}
                             >

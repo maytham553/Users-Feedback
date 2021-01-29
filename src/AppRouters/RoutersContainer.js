@@ -1,9 +1,9 @@
 import React from "react";
-// import firebase from "../config/fbConfig";
+// import firebase from "../Config/fbConfig";
 import AdminRouters from "./AdminRouters";
 import LoginRouters from "./LoginRouters";
 import LogoutRouters from "./LogoutRouters";
-import UserTypeContext from "../contextApi/UserTypeContext";
+import UserTypeContext from "../Context/UserTypeContext";
 
 
 class RoutersContainer extends React.Component {

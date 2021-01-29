@@ -21,11 +21,11 @@ class FeedbackStatusSubmitter {
         const feedbackId = this.feedbackId;
         const status = data.status
 
-
-        this.db.collection('feedbacks').doc(feedbackId).update({
-            status: status
-        }).then(() => {
-            // close the create modal & reset Form
+        this.db.collection('feedbacks')
+            .doc(feedbackId)
+            .update({
+                status: status
+            }).then(() => {
             this.redirectCallback()
             console.log('success update status')
 

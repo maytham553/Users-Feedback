@@ -5,6 +5,8 @@
   "dependencies": {
     "@autofiy/raf-core": "^1.5.0",
     "@autofiy/raf-material": "^1.1.1",
+    "@autofiy/rai-core": "^1.0.1",
+    "@autofiy/rai-material": "^1.1.1",
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
     "@react-firebase/auth": "^0.2.10",

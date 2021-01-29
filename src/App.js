@@ -1,9 +1,9 @@
 import React from "react";
 import MainNav from "./Navbar/MainNav";
-import firebase from './config/FirebaseConfig';
+import firebase from './Config/FirebaseConfig';
 import RoutersContainer from "./AppRouters/RoutersContainer";
-import UserTypeContext from "./contextApi/UserTypeContext";
-import {Box, Container} from "@material-ui/core";
+import UserTypeContext from "./Context/UserTypeContext";
+import {Box, Container, Grid} from "@material-ui/core";
 
 class App extends React.Component {
 
@@ -41,9 +41,11 @@ class App extends React.Component {
                 <Box className="App">
                     <MainNav/>
 
-                    <Container >
+                    <Container>
 
-                        <RoutersContainer/>
+                        <Grid container justify='center'>
+                            <RoutersContainer/>
+                        </Grid>
                         {/*this button only on test mode*/}
                         <button onClick={() => {
                             {

@@ -1,6 +1,6 @@
 import React from "react";
-import firebase from "../config/FirebaseConfig";
-import fbConfig from "../config/FirebaseConfig";
+import firebase from "../Config/FirebaseConfig";
+import fbConfig from "../Config/FirebaseConfig";
 import FeedbacksList from "./FeedbacksList";
 import {Grid} from "@material-ui/core";
 

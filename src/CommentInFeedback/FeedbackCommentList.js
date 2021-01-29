@@ -1,25 +1,27 @@
 import React from "react";
 import FeedbackCommentItem from "./FeedbackCommentItem";
+import {Box, CircularProgress} from "@material-ui/core";
 
 
 class FeedbackCommentList extends React.Component {
 
 
     render() {
-        console.log(this.props.dataStatus)
         if (this.props.dataStatus === 'loading') {
-            return <div>LOADING</div>
+            return <Box><CircularProgress/></Box>
         } else if (this.props.comments.length !== 0) {
             return (this.props.comments.map((comment, index) => {
                 return <FeedbackCommentItem key={index}
-                                             comment={comment}/>
+                                            comment={comment}/>
 
             }))
         } else if (this.props.dataStatus === 'error') {
-            return <div>Error</div>
-        } else {
-            return <div>there is no comment</div>
+            return <Box>Error</Box>
         }
+
+
+            return <></>
+
 
     }
 

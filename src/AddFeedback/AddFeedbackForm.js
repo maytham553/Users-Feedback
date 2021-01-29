@@ -37,7 +37,7 @@ class AddFeedbackForm extends React.Component {
                 ]}
                       services={{
                           submitter: (form) => new AddFeedbackSubmitter(form ,() => {
-                              this.props.history.push('/Feedbacks')
+                              this.props.history.push('/')
                           })
                       }}
 
