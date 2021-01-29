@@ -1,7 +1,7 @@
 import React from "react";
 import firebase from "firebase";
 import {Link} from "react-router-dom";
-import {Box, Button, Grid, Tooltip, Typography, withStyles} from "@material-ui/core";
+import {Button, Grid, Tooltip, Typography, withStyles} from "@material-ui/core";
 import DeleteIcon from '@material-ui/icons/Delete';
 import {grey, red} from "@material-ui/core/colors";
 import VisibilityIcon from '@material-ui/icons/Visibility';
@@ -29,11 +29,14 @@ const styles = theme => ({
         backgroundColor: grey[200],
         marginRight: '10px',
         marginLeft: '8px',
-        padding:'5px',
-        fontSize:'15px'
+        padding: '5px',
+        fontSize: '15px'
     },
     title: {
-        marginBottom:'10px',
+        marginBottom: '10px',
+    },
+    description:{
+        color:grey[500],
     }
 });
 
@@ -61,22 +64,31 @@ class FeedbackItem extends React.Component {
         const feedbackId = this.props.feedback.id;
         const feedbackDetails = this.props.feedback;
         const {classes} = this.props;
+        const description = feedbackDetails.feedbackDescription.slice(0, 40) + (feedbackDetails.feedbackDescription.length > 40? " ..." : "")
 
         return (
-            <Grid container item className={classes.item} spacing={3} md={2}>
+            <Grid container item className={classes.item} spacing={3} md={8}>
 
-                <Grid item container spacing={1} xs={12} className={classes.title}>
-                    <Typography variant="h6" >
-                        <Box component={"span"} className={classes.titleLabel}>Title</Box>
-                         {feedbackDetails.title}
-                    </Typography>
+                <Grid item container spacing={1} xs={12} className={classes.title} direction={'column'} >
+                    <Grid item>
+                        <Typography variant="h6">
+                            {feedbackDetails.title}
+                        </Typography>
+                    </Grid>
+
+                    <Grid item  className={classes.description}>
+                        <Typography variant="subtitle1">
+                            {description}
+                        </Typography>
+
+                    </Grid>
 
                 </Grid>
 
                 {/*SHOW BUTTON */}
                 <Grid item container spacing={2}>
 
-                    <Grid item xs={4} md={12}>
+                    <Grid item xs={4}>
                         <Tooltip title="show ">
                             <Button
                                 variant={"contained"}
@@ -97,7 +109,7 @@ class FeedbackItem extends React.Component {
                     </Grid>
 
                     {/*UPDATE BUTTON */}
-                    <Grid item xs={4} md={12}>
+                    <Grid item xs={4}>
 
                         <Tooltip title="Update">
 
@@ -121,7 +133,7 @@ class FeedbackItem extends React.Component {
                     </Grid>
 
                     {/*DELETE BUTTON */}
-                    <Grid item xs={4} md={12}>
+                    <Grid item xs={4}>
                         <Tooltip title="Delete">
                             <Button
                                 variant={"contained"}
