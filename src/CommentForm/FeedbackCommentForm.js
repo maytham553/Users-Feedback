@@ -20,14 +20,12 @@ class FeedbackCommentForm extends React.Component {
                     }
                 ]}
                       listen={{
-                          [GlobalEvents.SUBMIT_SUCCEEDED]: (form, data) => {
-                              console.log(data);
+                          [GlobalEvents.SUBMIT_SUCCEEDED]: (form) => {
                               form.value().clear();
                           }
                       }}
 
                       services={{
-
                           submitter: (form) => new AddCommentFormSubmitter(form, this.feedbackId)
                       }}
 

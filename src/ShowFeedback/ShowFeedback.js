@@ -28,10 +28,11 @@ const styles = theme => ({
         textAlign: 'center',
         marginTop: '40px',
     },
-    text:{
+    text: {
         backgroundColor: grey[50],
         borderRadius: '4px',
         padding: '8px',
+        overflowWrap: 'anywhere'
     }
 });
 
@@ -50,43 +51,51 @@ class ShowFeedback extends React.Component {
 
         if (userType === 'admin') {
             return (
-                <Grid container item md={12} direction='column' spacing={5} className={classes.root} justify={"center"}>
+                <Box>
+
+                    <Grid container item md={12} direction='column' spacing={5} className={classes.root}
+                          justify={"center"}>
 
 
-                    <Grid item container md={12} justify={"center"}>
-                        <Grid item className={classes.Label} md={2}>Title</Grid>
-                        <Grid item md={3} className={classes.text}>{feedbackDetails.title}</Grid>
-                    </Grid>
-                    <Grid item container md={12} justify={"center"}>
-                        <Grid item className={classes.Label} md={2}>App name</Grid>
-                        <Grid item md={3} className={classes.text}>{feedbackDetails.appName}</Grid>
-                    </Grid>
-                    <Grid item container md={12} justify={"center"}>
-                        <Grid item className={classes.Label} md={2}>Type</Grid>
-                        <Grid item md={3} className={classes.text}>{feedbackDetails.type}</Grid>
-                    </Grid>
-                    <Grid item container md={12} justify={"center"}>
-                        <Grid item className={classes.Label} md={2}>DESC.</Grid>
-                        <Grid item md={3}  className={classes.text} ><Typography>{feedbackDetails.feedbackDescription}</Typography> </Grid>
-                    </Grid>
-
-                    <Grid item md={12}>
-                        <FeedbackStatusForm feedbackId={feedbackId} feedbackStatus={feedbackDetails.status}/>
-                    </Grid>
-                    <Grid item container md={12} justify={"center"}>
-                        {/*Feedback Comment Form*/}
-                        <Grid item container md={5}>
-                            <FeedbackCommentForm feedbackId={feedbackId}/>
+                        <Grid item container md={12} justify={"center"}>
+                            <Grid item className={classes.Label} md={2}>Title</Grid>
+                            <Grid item md={3} className={classes.text}>{feedbackDetails.title}</Grid>
                         </Grid>
-                        {/*Feedback Comment */}
-                        {/*<Grid item className={classes.Label} md={1}>Comments</Grid>*/}
-                        <Grid container item md={12} className={classes.CommentContainer} justify={"center"}>
-                            <FeedbackCommentContainer feedbackId={feedbackId}/>
+                        <Grid item container md={12} justify={"center"}>
+                            <Grid item className={classes.Label} md={2}>App name</Grid>
+                            <Grid item md={3} className={classes.text}>{feedbackDetails.appName}</Grid>
                         </Grid>
+                        <Grid item container md={12} justify={"center"}>
+                            <Grid item className={classes.Label} md={2}>Type</Grid>
+                            <Grid item md={3} className={classes.text}>{feedbackDetails.type}</Grid>
+                        </Grid>
+                        <Grid item container md={12} justify={"center"}>
+                            <Grid item className={classes.Label} md={2}>DESC.</Grid>
+                            <Grid item md={3} className={classes.text}>
+                                <Typography
+                                >{feedbackDetails.feedbackDescription}
+                                </Typography>
+                            </Grid>
+                        </Grid>
+
+                        <Grid item md={12}>
+                            <FeedbackStatusForm feedbackId={feedbackId} feedbackStatus={feedbackDetails.status}/>
+                        </Grid>
+                        <Grid item container md={12} justify={"center"}>
+                            {/*Feedback Comment Form*/}
+                            <Grid item container md={5}>
+                                <FeedbackCommentForm feedbackId={feedbackId}/>
+                            </Grid>
+                            {/*Feedback Comment */}
+                            {/*<Grid item className={classes.Label} md={1}>Comments</Grid>*/}
+                            <Grid container item md={12} className={classes.CommentContainer} justify={"center"}>
+                                <FeedbackCommentContainer feedbackId={feedbackId}/>
+                            </Grid>
+                        </Grid>
+
+
                     </Grid>
-
-
-                </Grid>)
+                </Box>)
         }
 
         return (
@@ -95,26 +104,28 @@ class ShowFeedback extends React.Component {
 
                 <Grid item container md={12} justify={"center"}>
                     <Grid item className={classes.Label} md={2}>Title</Grid>
-                    <Grid item md={3} className={classes.text} >{feedbackDetails.title}</Grid>
+                    <Grid item md={3} className={classes.text}>{feedbackDetails.title}</Grid>
                 </Grid>
                 <Grid item container md={12} justify={"center"}>
                     <Grid item className={classes.Label} md={2}>App name</Grid>
-                    <Grid item md={3} className={classes.text} >{feedbackDetails.appName}</Grid>
+                    <Grid item md={3} className={classes.text}>{feedbackDetails.appName}</Grid>
                 </Grid>
                 <Grid item container md={12} justify={"center"}>
                     <Grid item className={classes.Label} md={2}>Type</Grid>
-                    <Grid item md={3} className={classes.text} >{feedbackDetails.type}</Grid>
+                    <Grid item md={3} className={classes.text}>{feedbackDetails.type}</Grid>
                 </Grid>
                 <Grid item container md={12} justify={"center"}>
                     <Grid item className={classes.Label} md={2}>DESC.</Grid>
-                    <Grid item md={3} className={classes.text} ><Typography>{feedbackDetails.feedbackDescription}</Typography> </Grid>
+                    <Grid item md={3} className={classes.text}>
+                        {feedbackDetails.feedbackDescription}
+                    </Grid>
                 </Grid>
 
 
                 <Grid item container md={12} justify={"center"}>
                     {/*Feedback Comment Form*/}
-                    <Grid item container  md={5}>
-                        <FeedbackCommentForm feedbackId={feedbackId} />
+                    <Grid item container md={5}>
+                        <FeedbackCommentForm feedbackId={feedbackId}/>
                     </Grid>
                     {/*Feedback Comment */}
                     {/*<Grid item className={classes.Label} md={1}>Comments</Grid>*/}

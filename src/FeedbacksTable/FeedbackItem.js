@@ -1,7 +1,7 @@
 import React from "react";
 import firebase from "firebase";
 import {Link} from "react-router-dom";
-import {Button, Grid, Tooltip, Typography, withStyles} from "@material-ui/core";
+import {Button, Card, Grid, Tooltip, Typography, withStyles} from "@material-ui/core";
 import DeleteIcon from '@material-ui/icons/Delete';
 import {grey, red} from "@material-ui/core/colors";
 import VisibilityIcon from '@material-ui/icons/Visibility';
@@ -10,13 +10,8 @@ import BackupIcon from '@material-ui/icons/Backup';
 const styles = theme => ({
     item: {
         backgroundColor: grey[100],
-        marginLeft: '20px',
-        marginRight: '20px',
-        marginTop: '30px',
         borderRadius: '5px',
-        textAlign: 'center',
-        paddingTop: '10px',
-
+        padding : 10 ,
     },
     deleteButton: {
         color: 'white',
@@ -67,87 +62,89 @@ class FeedbackItem extends React.Component {
         const description = feedbackDetails.feedbackDescription.slice(0, 40) + (feedbackDetails.feedbackDescription.length > 40? " ..." : "")
 
         return (
-            <Grid container item className={classes.item} spacing={3} md={8}>
+            <Card style={{ marginBottom : 16 , width : '100%'}}>
+                <Grid container item className={classes.item}  md={12} >
 
-                <Grid item container spacing={1} xs={12} className={classes.title} direction={'column'} >
-                    <Grid item>
-                        <Typography variant="h6">
-                            {feedbackDetails.title}
-                        </Typography>
-                    </Grid>
+                    <Grid item container spacing={1} xs={12} className={classes.title} direction={'column'} >
+                        <Grid item>
+                            <Typography variant="h6">
+                                {feedbackDetails.title}
+                            </Typography>
+                        </Grid>
 
-                    <Grid item  className={classes.description}>
-                        <Typography variant="subtitle1">
-                            {description}
-                        </Typography>
+                        <Grid item  className={classes.description}>
+                            <Typography variant="subtitle1">
+                                {description}
+                            </Typography>
 
-                    </Grid>
-
-                </Grid>
-
-                {/*SHOW BUTTON */}
-                <Grid item container spacing={2}>
-
-                    <Grid item xs={4}>
-                        <Tooltip title="show ">
-                            <Button
-                                variant={"contained"}
-                                component={Link}
-                                to={{
-                                    pathname: '/showFeedback',
-                                    state:
-                                        {
-                                            feedbackDetails: feedbackDetails,
-                                            feedbackId: feedbackId
-                                        }
-                                }}
-                                startIcon={<VisibilityIcon/>}
-                            >
-                                show
-                            </Button>
-                        </Tooltip>
-                    </Grid>
-
-                    {/*UPDATE BUTTON */}
-                    <Grid item xs={4}>
-
-                        <Tooltip title="Update">
-
-                            <Button
-                                variant={"contained"}
-                                component={Link}
-                                to={{
-                                    pathname: './updateFeedback',
-                                    state:
-                                        {
-                                            feedbackDetails: feedbackDetails,
-                                            feedbackId: feedbackId
-                                        }
-                                }}
-                                startIcon={<BackupIcon/>}
-                            >
-                                update
-                            </Button>
-                        </Tooltip>
+                        </Grid>
 
                     </Grid>
 
-                    {/*DELETE BUTTON */}
-                    <Grid item xs={4}>
-                        <Tooltip title="Delete">
-                            <Button
-                                variant={"contained"}
-                                startIcon={<DeleteIcon/>}
-                                className={classes.deleteButton}
-                                onClick={this.deleteFeedback}
-                            >
-                                Delete
-                            </Button>
-                        </Tooltip>
-                    </Grid>
-                </Grid>
+                    {/*SHOW BUTTON */}
+                    <Grid item container spacing={2} justify={"center"} >
 
-            </Grid>
+                        <Grid item container md={4} justify={"center"}>
+                            <Tooltip title="show ">
+                                <Button
+                                    variant={"contained"}
+                                    component={Link}
+                                    to={{
+                                        pathname: '/showFeedback',
+                                        state:
+                                            {
+                                                feedbackDetails: feedbackDetails,
+                                                feedbackId: feedbackId
+                                            }
+                                    }}
+                                    startIcon={<VisibilityIcon/>}
+                                >
+                                    show
+                                </Button>
+                            </Tooltip>
+                        </Grid>
+
+                        {/*UPDATE BUTTON */}
+                        <Grid item container md={4} justify={"center"} >
+
+                            <Tooltip title="Update">
+
+                                <Button
+                                    variant={"contained"}
+                                    component={Link}
+                                    to={{
+                                        pathname: './updateFeedback',
+                                        state:
+                                            {
+                                                feedbackDetails: feedbackDetails,
+                                                feedbackId: feedbackId
+                                            }
+                                    }}
+                                    startIcon={<BackupIcon/>}
+                                >
+                                    update
+                                </Button>
+                            </Tooltip>
+
+                        </Grid>
+
+                        {/*DELETE BUTTON */}
+                        <Grid item  container md={4} justify={"center"}>
+                            <Tooltip title="Delete">
+                                <Button
+                                    variant={"contained"}
+                                    startIcon={<DeleteIcon/>}
+                                    className={classes.deleteButton}
+                                    onClick={this.deleteFeedback}
+                                >
+                                    Delete
+                                </Button>
+                            </Tooltip>
+                        </Grid>
+                    </Grid>
+                    </Grid>
+
+            </Card>
 
         )
     }

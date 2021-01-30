@@ -8,6 +8,10 @@ import {withStyles} from "@material-ui/core";
 
 
 const styles = theme => ({
+
+    root:{
+        marginBottom:'10vh'
+    },
     rightButtons: {
         textAlign: 'right'
     },

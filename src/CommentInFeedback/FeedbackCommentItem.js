@@ -11,7 +11,8 @@ const styles = theme => ({
         textAlign: 'right',
         padding: '10px',
         marginRight: '150px',
-        borderRadius: '5px'
+        borderRadius: '5px',
+        overflowWrap:'anywhere'
 
 
     },
@@ -21,7 +22,9 @@ const styles = theme => ({
         textAlign: 'left',
         padding: '10px',
         marginLeft: '150px',
-        borderRadius: '5px'
+        borderRadius: '5px',
+        overflowWrap:'anywhere'
+
     },
 
 

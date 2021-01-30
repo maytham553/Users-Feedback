@@ -1,19 +1,21 @@
 import React from "react";
 import {Form} from "@autofiy/raf-core";
-import {Text, TextArea, Radio} from "@autofiy/raf-material";
-import {Button, Box} from "@material-ui/core";
-import AddFeedbackSubmitter from "./AddFeedbackSubmitter";
+import {Radio, Text, TextArea} from "@autofiy/raf-material";
+import {Box, Button, Grid} from "@material-ui/core";
+import UpdateFeedbackSubmitter from "./UpdateFeedbackSubmitter";
+import {withRouter} from "react-router-dom";
 
+class UpdateFeedbackForm extends React.Component {
 
-class AddFeedbackForm extends React.Component {
-
+     feedbackDetails = this.props.location.state.feedbackDetails;
+     feedbackId = this.props.location.state.feedbackId;
 
     render() {
-
         return (
-            <Box display={'flex'} justifyContent={'center'}>
-                <Form fields={[
-                    {as: Text, name: 'title', extra: {label: 'Title'}},
+            <Grid item  md={5} >
+
+            <Form fields={[
+                    {as: Text, name: 'title', extra: {label: 'title'}},
                     {as: Text, name: 'appName', extra: {label: 'App name'}},
 
                     {
@@ -36,10 +38,14 @@ class AddFeedbackForm extends React.Component {
                     }
                 ]}
                       services={{
-                          submitter: (form) => new AddFeedbackSubmitter(form ,() => {
+
+
+                          submitter: (form) => new UpdateFeedbackSubmitter(form, this.feedbackId, () => {
                               this.props.history.push('/')
+
                           })
                       }}
+                      initialValues={this.feedbackDetails}
 
 
                       extra={{
@@ -54,10 +60,13 @@ class AddFeedbackForm extends React.Component {
                       }}
                 />
 
-            </Box>)
+            </Grid>)
 
 
     }
+
+
 }
 
-export default AddFeedbackForm;
+
+export default withRouter(UpdateFeedbackForm)

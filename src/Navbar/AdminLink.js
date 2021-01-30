@@ -14,7 +14,7 @@ class LoginLink extends React.Component {
         return (
 
 
-            <AppBar position="static">
+            <AppBar position="static" className={classes.root}>
                 <Toolbar display="flex">
                     <Box>
                         <Button

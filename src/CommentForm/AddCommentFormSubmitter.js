@@ -1,4 +1,5 @@
 import firebase from "../Config/FirebaseConfig";
+import {GlobalEvents} from "@autofiy/raf-core";
 
 
 class AddCommentFormSubmitter {
@@ -30,7 +31,7 @@ class AddCommentFormSubmitter {
 
         }).then(() => {
             console.log('add comment successfully')
-
+            this.getForm().event().emit(GlobalEvents.SUBMIT_SUCCEEDED , {});
         }).catch(err => {
             console.log(err);
         });

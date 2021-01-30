@@ -3,7 +3,7 @@ import MainNav from "./Navbar/MainNav";
 import firebase from './Config/FirebaseConfig';
 import RoutersContainer from "./AppRouters/RoutersContainer";
 import UserTypeContext from "./Context/UserTypeContext";
-import {Box, Container, Grid} from "@material-ui/core";
+import {Box, Button, Container, Grid} from "@material-ui/core";
 
 class App extends React.Component {
 
@@ -43,11 +43,13 @@ class App extends React.Component {
 
                     <Container>
 
-                        <Grid container justify='center'>
+                        <Box>
                             <RoutersContainer/>
-                        </Grid>
+                        </Box>
                         {/*this button only on test mode*/}
-                        <button onClick={() => {
+
+                        <Box>
+                        <Button variant={"contained"} onClick={() => {
                             {
                                 if (this.state.userType === 'admin') {
                                     this.setState({userType: "login"})
@@ -58,7 +60,8 @@ class App extends React.Component {
                         }}
                         >
                             he is {this.state.userType}
-                        </button>
+                        </Button>
+                        </Box>
                     </Container>
 
                 </Box>

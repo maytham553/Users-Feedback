@@ -2,7 +2,7 @@ import React from "react";
 import {Route, Switch} from "react-router-dom";
 import FeedbacksAdminContainer from "../FeedbacksTable/FeedbacksAdminContainer";
 import ShowFeedback from "../ShowFeedback/ShowFeedback";
-import UpdateFeedbackForm from "../UpdateFeedback/UpdateFeedbackForm";
+import UpdateFeedbackForm from "../UpdateFeedbackForm/UpdateFeedbackForm";
 
 class AdminRouters extends React.Component {
 
